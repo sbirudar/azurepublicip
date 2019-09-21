@@ -43,5 +43,5 @@ resource "azurerm_public_ip" "test" {
 }
 output "public_ip_address" {
   description = "The actual ip address allocated for the resource."
-  value       = "${azurerm_public_ip.test.ip_address} > /var/lib/jenkins/workspace/Azure-InfraAutomation/azurevm/hosts"
+  value       = "${azurerm_public_ip.test.ip_address} > /etc/ansible/hosts"
 }
