@@ -28,12 +28,12 @@ variable "prefix" {
 
 resource "azurerm_resource_group" "test" {
   name     = "${var.prefix}-resources"
-  location = "West US"
+  location = "Central US"
 }
 
 resource "azurerm_public_ip" "test" {
   name                = "${var.prefix}-publicip"
-  location            = "West US"
+  location            = "Central US"
   resource_group_name = "${azurerm_resource_group.test.name}"
   allocation_method   = "Static"
 
@@ -43,5 +43,5 @@ resource "azurerm_public_ip" "test" {
 }
 output "public_ip_address" {
   description = "The actual ip address allocated for the resource."
-  value       = "${azurerm_public_ip.azure_public_ip.ip_address} > "/var/lib/jenkins/workspace/Azure-InfraAutomation/azurevm/hosts""
+  value       = "${azurerm_public_ip.test.ip_address} > "/var/lib/jenkins/workspace/Azure-InfraAutomation/azurevm/hosts""
 }
